@@ -1,0 +1,13 @@
+/*
+No maxspeed limit set in highway (excluding path, footway and steps)
+*/
+[out:json][timeout:25];
+// gather results
+(
+  way["highway"][!maxspeed]["highway"!~"steps"]["highway"!~"footway"]["highway"!~"path"]["area"!~"yes"]
+  ({{bbox}});
+);
+// print results
+out body;
+>;
+out skel qt;
