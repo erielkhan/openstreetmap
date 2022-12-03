@@ -1,0 +1,13 @@
+/*
+No maxspeed limit set in highway (for main ways)
+*/
+[out:json][timeout:25];
+// gather results
+(
+  way["highway"][!maxspeed]["highway"!~"steps"]["highway"!~"footway"]["highway"!~"path"]["area"!~"yes"]["highway"!~"residential"]["highway"!~"service"]["highway"!~"pedestrian"]["highway"!~"cycleway"]["highway"!~"track"]["highway"!~"unclassified"]["highway"!~"road"]["highway"!~"living_street"]
+  ({{bbox}});
+);
+// print results
+out body;
+>;
+out skel qt;
